@@ -7,6 +7,12 @@
     <title>Portfolio | AMRvisuals</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
+
+    <!-- Lightbox CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
   </head>
   <body>
     <header>
@@ -33,111 +39,159 @@
           <h2 class="section-title">Portfolio</h2>
           <p>
             Dive into our collection of cinematic projects. Each piece below
-            represents a story we've brought to life – click on any video to
+            represents a story we've brought to life — click on any thumbnail to
             watch. The Tide campaign has its own dedicated space, accessible via
             the campaign thumbnail.
           </p>
+
+          <!-- ✨ New clean thumbnail grid -->
           <div class="portfolio-grid">
-            <!-- Tide campaign card linking to dedicated page -->
-            <div class="portfolio-item">
-              <a href="tide.html">
-                <img
-                  src="assets/tide_thumbnail.png"
-                  alt="Tide Campaign"
-                  loading="lazy"
-                />
-                <div class="portfolio-overlay">Tide Campaign</div>
-              </a>
-            </div>
-            <!-- Embed projects from playlist and extras -->
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/mYa1uPXMvW64"
-                title="BASS College Series Lake Cherokee Trailer"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/E5_9Pydvliw"
-                title="Sponsoring The Learning Factory 23'"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/oFvkteKVNQc"
-                title="Keep The Feelings Alive With Tide – 60s"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/ItQVhOb-BbE"
-                title="Tide Manifesto"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/uKEyyZWf4-s"
-                title="Wedding Highlight – The Repards"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/LzjGNnQOQYSM"
-                title="Tide Short Spot"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/hjgcblEeNIU"
-                title="Keep The Feelings Alive With Tide – Behind the Scenes"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/BLMKTACaztM"
-                title="Additional Project One"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="portfolio-item">
-              <iframe
-                src="https://www.youtube.com/embed/ML0jw8ZY3xo"
-                title="Additional Project Two"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
+            <!-- Tide Campaign -->
+            <a href="tide.html" class="portfolio-thumb-wrapper">
+              <img
+                src="assets/tide_thumbnail.png"
+                alt="Tide Campaign"
+                class="portfolio-thumb"
+              />
+              <div class="portfolio-overlay">Tide Campaign</div>
+            </a>
+
+            <!-- Videos displayed as clean thumbnails -->
+            <a
+              href="https://www.youtube.com/watch?v=mYa1uPXMvW64"
+              class="glightbox"
+              data-gallery="amr-videos"
+            >
+              <img
+                src="assets/thumb_lakecherokee.jpg"
+                alt="Lake Cherokee Trailer"
+                class="portfolio-thumb"
+              />
+            </a>
+
+            <a
+              href="https://www.youtube.com/watch?v=E5_9Pydvliw"
+              class="glightbox"
+              data-gallery="amr-videos"
+            >
+              <img
+                src="assets/thumb_learningfactory.jpg"
+                alt="The Learning Factory 23'"
+                class="portfolio-thumb"
+              />
+            </a>
+
+            <a
+              href="https://www.youtube.com/watch?v=oFvkteKVNQc"
+              class="glightbox"
+              data-gallery="amr-videos"
+            >
+              <img
+                src="assets/thumb_tide60s.jpg"
+                alt="Tide 60s Spot"
+                class="portfolio-thumb"
+              />
+            </a>
+
+            <a
+              href="https://www.youtube.com/watch?v=uKEyyZWf4-s"
+              class="glightbox"
+              data-gallery="amr-videos"
+            >
+              <img
+                src="assets/thumb_wedding.jpg"
+                alt="Wedding Highlight"
+                class="portfolio-thumb"
+              />
+            </a>
+
+            <a
+              href="https://www.youtube.com/watch?v=BLMKTACaztM"
+              class="glightbox"
+              data-gallery="amr-videos"
+            >
+              <img
+                src="assets/thumb_project1.jpg"
+                alt="Additional Project One"
+                class="portfolio-thumb"
+              />
+            </a>
+
+            <a
+              href="https://www.youtube.com/watch?v=ML0jw8ZY3xo"
+              class="glightbox"
+              data-gallery="amr-videos"
+            >
+              <img
+                src="assets/thumb_project2.jpg"
+                alt="Additional Project Two"
+                class="portfolio-thumb"
+              />
+            </a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      &copy; <script>document.write(new Date().getFullYear());</script> AMRvisuals. All Rights Reserved.
+      &copy;
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      AMRvisuals. All Rights Reserved.
     </footer>
+
+    <!-- Lightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+      const lightbox = GLightbox({
+        selector: ".glightbox",
+        type: "video",
+        autoplayVideos: true,
+      });
+    </script>
+
+    <style>
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+      }
+
+      .portfolio-thumb {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .portfolio-thumb:hover {
+        transform: scale(1.03);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: center;
+      }
+
+      .portfolio-thumb-wrapper {
+        position: relative;
+        display: block;
+      }
+
+      .portfolio-thumb-wrapper:hover .portfolio-overlay {
+        opacity: 1;
+      }
+    </style>
   </body>
 </html>
