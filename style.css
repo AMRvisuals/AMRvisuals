@@ -262,6 +262,11 @@ header {
   justify-content: center;
 }
 
+.hero {
+  margin-top: calc(-1 * (var(--header-height) + 2rem));
+}
+
+
 /* Buttons */
 .btn {
   display: inline-block;
