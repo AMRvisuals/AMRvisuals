@@ -294,6 +294,12 @@ header {
   padding: calc(var(--header-height) + 0.3rem) 0 4rem;
 }
 
+.dark-section h1,
+.light-section h1 {
+  margin-top: 0;
+}
+
+
 /* Services */
 .services-grid {
   display: grid;
