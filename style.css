@@ -503,20 +503,60 @@ header {
   }
 }
 
-/* HERO VIDEO: force cover + prevent any later iframe rules from overriding */
-.hero .video-background iframe {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
+/* ==========================
+   HERO VIDEO: FULL-BLEED COVER
+   ========================== */
 
-  width: 100vw !important;
-  height: 56.25vw !important;      /* 9/16 */
-
-  min-width: 177.78vh !important;  /* 16/9 */
-  min-height: 100vh !important;
-
-  transform: translate(-50%, -50%) !important;
-  pointer-events: none !important;
-  border: 0 !important;
+:root {
+  --header-height: 80px; /* adjust if needed */
 }
+
+/* solid header + fixed */
+header {
+  background: #000;
+}
+
+/* hero starts below fixed header */
+.hero {
+  margin-top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+}
+
+/* keep layers predictable */
+.video-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* THE IMPORTANT PART: force iframe to "cover" like object-fit */
+.hero .video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* 16:9 cover math */
+  width: 100vw;
+  height: 56.25vw; /* 9/16 */
+
+  min-width: 177.78vh; /* 16/9 */
+  min-height: calc(100vh - var(--header-height));
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
+}
+
 
