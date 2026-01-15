@@ -291,7 +291,7 @@ header {
   color: #1a1a1a;
 
   /* FIX: space for header + breathing room on inner pages */
-  padding: calc(var(--header-height) + 2rem) 0 4rem;
+  padding: calc(var(--header-height) + 0.75rem) 0 4rem;
 }
 
 /* Services */
