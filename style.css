@@ -502,3 +502,21 @@ header {
     flex-direction: column;
   }
 }
+
+/* Force Bunny hero video to "cover" the hero (prevents letterboxing inside iframe) */
+.hero .video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* 16:9 cover math (like object-fit: cover, but for iframes) */
+  width: 100vw;
+  height: 56.25vw;      /* 9/16 of viewport width */
+
+  min-width: 177.78vh;  /* 16/9 of viewport height */
+  min-height: 100vh;
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
+}
