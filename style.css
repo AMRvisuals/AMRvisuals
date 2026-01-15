@@ -8,9 +8,6 @@
   portfolio, about, contact, campaigns).
 */
 
-/* Reset fonts – using system sans-serif for the original cinematic gold & charcoal theme */
-/* No external font imports needed */
-
 /* Reset */
 * {
   box-sizing: border-box;
@@ -31,9 +28,10 @@ body {
   color: #f5f5f5;
   background-color: #0c0c0c;
   line-height: 1.6;
-  padding-top: calc(var(--header-height) + 2rem);
-}
 
+  /* GLOBAL FIX: keep all page content from sitting under fixed header */
+  padding-top: var(--header-height);
+}
 
 /* Container utility */
 .container {
@@ -60,9 +58,7 @@ header {
   width: 100%;
   height: var(--header-height);
   z-index: 1000;
-
-  background-color: #000;       /* solid */
-  backdrop-filter: none;        /* remove blur since it's solid */
+  background-color: #000; /* solid */
 }
 
 /* Header layout: logo left, nav centered, contact right */
@@ -77,16 +73,14 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-transform: uppercase;
   color: #f5f5f5;
   justify-self: start;
+
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 3px;
   font-size: 1.6rem;
+  text-transform: uppercase;
 }
-
 
 .logo .skull {
   color: #e4d354;
@@ -95,7 +89,7 @@ header {
 .nav-links {
   justify-self: center;
   display: flex;
-  gap: 4rem;       /* spacing between menu items */
+  gap: 4rem; /* spacing between menu items */
   list-style: none;
 }
 
@@ -125,14 +119,10 @@ header {
 
 .header-cta {
   justify-self: end;
-
-  /* typography */
   font-family: "Inter", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 600;
-
-  /* color + appearance */
   color: #e4d354;
   text-decoration: none;
 }
@@ -175,20 +165,15 @@ header {
   width: 100%;
   overflow: hidden;
 
-  /* video starts below the fixed header */
-  margin-top: var(--header-height);
-  height: calc(100vh - var(--header-height));
+  /* Pull hero up so it can be true full-screen despite body padding-top */
+  margin-top: calc(-1 * var(--header-height));
+  height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #ffffff;
-}
-
-.hero {
-  margin-top: calc(-1 * (var(--header-height) + 24px));
-  height: 100vh;
 }
 
 .video-background {
@@ -207,7 +192,7 @@ header {
 
   /* 16:9 cover math (like object-fit: cover, but for iframes) */
   width: 100vw;
-  height: 56.25vw;     /* 9/16 of viewport width */
+  height: 56.25vw; /* 9/16 of viewport width */
 
   min-width: 177.78vh; /* 16/9 of viewport height */
   min-height: 100vh;
@@ -220,7 +205,7 @@ header {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -236,7 +221,6 @@ header {
   letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
-  /* Keep default font for site name */
 }
 
 .hero-subtitle {
@@ -251,11 +235,6 @@ header {
   gap: 1rem;
   justify-content: center;
 }
-
-.hero {
-  margin-top: calc(-1 * (var(--header-height) + 2rem));
-}
-
 
 /* Buttons */
 .btn {
@@ -301,14 +280,18 @@ header {
 /* Sections */
 .dark-section {
   background-color: #0c0c0c;
-  padding: 4rem 0;
   color: #f5f5f5;
+
+  /* FIX: space for header + breathing room on inner pages */
+  padding: calc(var(--header-height) + 2rem) 0 4rem;
 }
 
 .light-section {
   background-color: #f5f5f5;
   color: #1a1a1a;
-  padding: 4rem 0;
+
+  /* FIX: space for header + breathing room on inner pages */
+  padding: calc(var(--header-height) + 2rem) 0 4rem;
 }
 
 /* Services */
@@ -384,7 +367,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: #e4d354;
   display: flex;
   align-items: center;
@@ -508,100 +491,50 @@ header {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     flex-direction: column;
     width: 200px;
     padding: 1rem 0;
     transform: translateX(100%);
     transition: transform 0.3s ease;
   }
+
   .nav-links.open {
     transform: translateX(0);
   }
+
   .nav-links li {
     margin: 0.5rem 0;
     text-align: right;
     padding-right: 1.5rem;
   }
+
   .nav-toggle {
     display: block;
   }
+
   .hero-title {
     font-size: 2.8rem;
   }
+
   .hero-subtitle {
     font-size: 1.1rem;
   }
+
   .services-grid,
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
+
   .portfolio-item.large {
     grid-column: span 1;
   }
+
   .about-container {
     flex-direction: column;
   }
 }
 
-/* ==========================
-   HERO VIDEO: FULL-BLEED COVER
-   ========================== */
-
-
-/* solid header + fixed */
-header {
-  background: #000;
-}
-
-/* hero starts below fixed header */
-.hero {
-  margin-top: var(--header-height);
-  height: calc(100vh - var(--header-height));
-}
-
-/* keep layers predictable */
-.video-background {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* THE IMPORTANT PART: force iframe to "cover" like object-fit */
-.hero .video-background iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  /* 16:9 cover math */
-  width: 100vw;
-  height: 56.25vw; /* 9/16 */
-
-  min-width: 177.78vh; /* 16/9 */
-  min-height: calc(100vh - var(--header-height));
-
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  border: 0;
-}
-
-/* Push page content down below fixed header */
-.dark-section,
-.light-section {
-  padding-top: calc(var(--header-height) + 2rem);
-}
 
 
 
