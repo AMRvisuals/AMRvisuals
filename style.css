@@ -283,7 +283,7 @@ header {
   color: #f5f5f5;
 
   /* FIX: space for header + breathing room on inner pages */
-  padding: calc(var(--header-height) + 0.1rem) 0 4rem;
+  padding: calc(var(--header-height) + 0rem) 0 4rem;
 }
 
 .light-section {
@@ -291,7 +291,7 @@ header {
   color: #1a1a1a;
 
   /* FIX: space for header + breathing room on inner pages */
-  padding: calc(var(--header-height) + 0.1rem) 0 4rem;
+  padding: calc(var(--header-height) + 0rem) 0 4rem;
 }
 
 .dark-section h1,
