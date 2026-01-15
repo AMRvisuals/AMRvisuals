@@ -117,9 +117,9 @@ header {
 /* Right-aligned contact link in header */
 .header-cta {
   justify-self: end;
-  text-transform: lowercase;
+  text-transform: uppercase;
   font-style: italic;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px; /* slightly wider looks better in caps */
   color: #e4d354;
   text-decoration: none;
 }
