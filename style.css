@@ -604,6 +604,11 @@ header {
   border: 0;
 }
 
+/* Push page content down below fixed header */
+.dark-section,
+.light-section {
+  padding-top: calc(var(--header-height) + 2rem);
+}
 
 
 
