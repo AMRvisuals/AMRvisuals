@@ -18,6 +18,10 @@
   padding: 0;
 }
 
+:root {
+  --header-height: 70px; /* adjust if you want it taller/shorter */
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -28,6 +32,10 @@ body {
   background-color: #0c0c0c;
   line-height: 1.6;
   padding-top: calc(var(--header-height) + 2rem);
+}
+
+body {
+  padding-top: calc(var(--header-height) + 24px);
 }
 
 /* Container utility */
@@ -45,10 +53,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-}
-
-:root {
-  --header-height: 80px; /* adjust if you want it taller/shorter */
 }
 
 /* Navigation */
@@ -199,6 +203,10 @@ header {
   align-items: center;
   text-align: center;
   color: #ffffff;
+}
+
+.hero {
+  margin-top: calc(-1 * (var(--header-height) + 24px));
 }
 
 .video-background {
