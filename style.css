@@ -34,9 +34,6 @@ body {
   padding-top: calc(var(--header-height) + 2rem);
 }
 
-body {
-  padding-top: calc(var(--header-height) + 24px);
-}
 
 /* Container utility */
 .container {
@@ -90,7 +87,6 @@ header {
   font-size: 1.6rem;
 }
 
-}
 
 .logo .skull {
   color: #e4d354;
@@ -137,21 +133,6 @@ header {
   font-weight: 600;
 
   /* color + appearance */
-  color: #e4d354;
-  text-decoration: none;
-}
-
-.header-cta:hover {
-  opacity: 0.85;
-}
-
-
-/* Right-aligned contact link in header */
-.header-cta {
-  justify-self: end;
-  text-transform: uppercase;
-  font-style: italic;
-  letter-spacing: 2px; /* slightly wider looks better in caps */
   color: #e4d354;
   text-decoration: none;
 }
@@ -207,6 +188,7 @@ header {
 
 .hero {
   margin-top: calc(-1 * (var(--header-height) + 24px));
+  height: 100vh;
 }
 
 .video-background {
@@ -566,9 +548,6 @@ header {
    HERO VIDEO: FULL-BLEED COVER
    ========================== */
 
-:root {
-  --header-height: 80px; /* adjust if needed */
-}
 
 /* solid header + fixed */
 header {
@@ -622,13 +601,6 @@ header {
 .dark-section,
 .light-section {
   padding-top: calc(var(--header-height) + 2rem);
-}
-
-/* Add space below fixed header for page titles */
-h1 {
-  .dark-section h1,
-.light-section h1 {
-  margin-top: 4rem;
 }
 
 
