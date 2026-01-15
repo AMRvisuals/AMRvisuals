@@ -544,7 +544,7 @@ header {
 /* FORCE spacing under fixed header on inner pages */
 body:not(.home) main,
 body:not(.home) section:first-of-type {
-  padding-top: calc(var(--header-height) + 12px) !important;
+  padding-top: calc(var(--header-height) + 4px) !important;
 }
 
 /* REMOVE built-in top margin that can add extra gap */
