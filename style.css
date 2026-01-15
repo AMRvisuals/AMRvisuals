@@ -618,6 +618,8 @@ header {
 
 /* Add space below fixed header for page titles */
 h1 {
+  .dark-section h1,
+.light-section h1 {
   margin-top: 4rem;
 }
 
