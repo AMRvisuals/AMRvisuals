@@ -497,3 +497,19 @@ header {
     flex-direction: column;
   }
 }
+
+/* Hero video aspect-ratio enhancement */
+@media (min-aspect-ratio: 16/9) {
+  .video-background iframe {
+    width: 100vw;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .video-background iframe {
+    width: auto;
+    height: 100vh;
+  }
+}
+
