@@ -542,7 +542,20 @@ header {
   }
 }
 
+/* FORCE: remove any underline/line under the AMRVISUALS logo */
+header .logo,
+header .logo:hover,
+header .logo:visited,
+header .logo:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
 
+header .logo::after,
+header .logo::before {
+  content: none !important;
+}
 
 
 
