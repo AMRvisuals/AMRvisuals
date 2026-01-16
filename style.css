@@ -177,6 +177,14 @@ header {
   color: #ffffff;
 }
 
+/* Make landing page title match logo styling */
+.hero-title {
+  font-family: "Prompt", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .video-background {
   position: absolute;
   inset: 0;
