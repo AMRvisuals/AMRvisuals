@@ -181,7 +181,7 @@ header {
 .hero-title {
   font-family: "Prompt", sans-serif;
   font-weight: 900;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.3px;
   text-transform: uppercase;
 }
 
