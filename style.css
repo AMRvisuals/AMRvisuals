@@ -69,11 +69,10 @@ header {
   height: var(--header-height);
 }
 
-.logo {
-  .logo:hover,
-  .logo:visited {
-    text-decoration: none;
-  }
+.logo,
+.logo:hover,
+.logo:visited,
+.logo:active {
   display: flex;
   text-shadow: 0 1px 0 rgba(0,0,0,0.35);
   align-items: center;
@@ -86,12 +85,6 @@ header {
   letter-spacing: 0.5px;
   font-size: 1.6rem;
   text-transform: uppercase;
-}
-
-.logo .skull {
-  font-size: 1.1em;
-  line-height: 1;
-  color: #e4d354;
 }
 
 .nav-links {
