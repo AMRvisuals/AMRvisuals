@@ -69,6 +69,25 @@
         opacity: 0.9;
       }
     </style>
+    /* Fix title being covered by iframe/player */
+.project-title {
+  position: relative;
+  z-index: 2;
+  margin: 28px 0 14px;
+}
+
+.project-player {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+}
+
+/* If any global styles are pulling sections upward */
+.project-wrap {
+  position: relative;
+  z-index: 1;
+}
+
   </head>
 
   <body>
