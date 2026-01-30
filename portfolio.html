@@ -1,237 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | AMRvisuals</title>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMRvisuals | Portfolio</title>
 
-  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      background: #0b0f19;
-      color: white;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+    <style>
+      /* --- Portfolio grid only (won't affect your global nav/styles) --- */
 
-    /* ===== PORTFOLIO GRID ===== */
-
-    .portfolio-wrapper {
-      width: 100%;
-      padding: 0 32px 64px;
-      box-sizing: border-box;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      width: 100%;
-    }
-
-    @media (max-width: 900px) {
-      .portfolio-grid {
-        grid-template-columns: 1fr;
+      .portfolio-wrap {
+        padding: 0 32px 64px;
+        box-sizing: border-box;
       }
-    }
 
-    .portfolio-tile {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 21 / 9;
-      overflow: hidden;
-      cursor: pointer;
-      background: black;
-      border-radius: 4px;
-    }
+      /* If your site uses .container for page sections, you can remove the padding above
+         and wrap content in <div class="container"> instead. Keeping this simple + full width. */
 
-    .portfolio-tile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        width: 100%;
+      }
 
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      transition: background 150ms ease;
-    }
+      @media (max-width: 900px) {
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    .portfolio-tile:hover .portfolio-overlay {
-      background: rgba(0,0,0,0.35);
-    }
+      .portfolio-tile {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 21 / 9; /* wide tiles */
+        overflow: hidden;
+        cursor: pointer;
+        background: #000;
+        border-radius: 4px;
+        display: block;
+        text-decoration: none;
+      }
 
-    .portfolio-title {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-weight: 800;
-      font-size: clamp(20px, 2.4vw, 34px);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #e6ea34;
-      white-space: nowrap;
-      text-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      pointer-events: none;
-    }
+      .portfolio-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: filter 160ms ease, transform 160ms ease;
+      }
 
-    /* ===== MODAL ===== */
+      /* Hover = slightly white */
+      .portfolio-tile:hover .portfolio-thumb {
+        filter: brightness(1.12) contrast(0.96) saturate(0.96);
+        transform: scale(1.01);
+      }
 
-    .video-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
-    }
+      /* Light overlay so title stays readable */
+      .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.12);
+        transition: background 160ms ease;
+        pointer-events: none;
+      }
 
-    .video-modal.active {
-      display: block;
-    }
+      .portfolio-tile:hover .portfolio-overlay {
+        background: rgba(0, 0, 0, 0.16);
+      }
 
-    .video-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-    }
+      .portfolio-title {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 800;
+        font-size: clamp(18px, 2.3vw, 34px);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #e6ea34;
+        text-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
+        pointer-events: none;
+        text-align: center;
+        padding: 0 12px;
+        white-space: nowrap;
+      }
 
-    .video-container {
-      position: relative;
-      width: min(1200px, calc(100% - 32px));
-      margin: 6vh auto;
-      background: black;
-      border-radius: 6px;
-      overflow: hidden;
-    }
+      @media (max-width: 520px) {
+        .portfolio-title {
+          white-space: normal;
+          line-height: 1.05;
+        }
+      }
 
-    .video-close {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      z-index: 10;
-      font-size: 22px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
+      /* Optional: a small intro block that matches your site tone */
+      .portfolio-intro {
+        margin: 28px 0 18px;
+      }
+      .portfolio-intro h1 {
+        margin: 0 0 8px;
+      }
+      .portfolio-intro p {
+        margin: 0;
+        opacity: 0.85;
+      }
+    </style>
+  </head>
 
-    .video-player {
-      aspect-ratio: 16 / 9;
-      width: 100%;
-    }
-
-    .video-player iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-  </style>
-</head>
-
-<body>
-
-   <header>
+  <body>
+    <!-- ✅ EXACT SAME HEADER AS INDEX -->
+    <header>
       <div class="container nav-wrapper">
-        <a href="index.html" class="logo">
-          AMRvisuals
-        </a>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span class="burger"></span>
-        </button>
+        <a href="index.html" class="logo"> AMRvisuals </a>
+
         <ul class="nav-links">
-  <li><a href="services.html">Services</a></li>
-  <li><a href="portfolio.html">Portfolio</a></li>
-  <li><a href="about.html">About</a></li>
-</ul>
-<a href="contact.html" class="header-cta">CONTACT</a>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+
+        <a href="contact.html" class="header-cta">contact</a>
       </div>
     </header>
 
-  <!-- PORTFOLIO -->
-  <main class="portfolio-wrapper">
-    <div class="portfolio-grid" id="portfolioGrid"></div>
-  </main>
-
-  <!-- MODAL -->
-  <div class="video-modal" id="videoModal">
-    <div class="video-backdrop" onclick="closeVideo()"></div>
-    <div class="video-container">
-      <button class="video-close" onclick="closeVideo()">✕</button>
-      <div class="video-player" id="videoPlayer"></div>
-    </div>
-  </div>
-
-  <script>
-    /* =============================
-       EDIT ONLY THIS SECTION
-       ============================= */
-
-    const VIDEOS = [
-      {
-        title: "KOB TV || YOUTUBE PROMO",
-        thumb: "assets/KOBTV-PROMO.png",
-        embed:
-          "https://iframe.mediadelivery.net/embed/514564/66548b22-1023-4e4f-869c-215cb2aa0c7a?autoplay=true"
-      },
-      {
-        title: "LEW'S || ACCEL REEL",
-        thumb: "assets/accel.jpg",
-        embed:
-          "https://iframe.mediadelivery.net/embed/514564/09abb4c0-ceb2-44a2-a290-6f4f096ca480?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
-      },
-      {
-        title: "CHÊNE GEAR || CYPRESS COLORWAY",
-        thumb: "assets/chene.jpg",
-        embed:
-          "https://iframe.mediadelivery.net/embed/YOUR_ID_HERE?autoplay=true"
-      },
-      {
-        title: "W SAUCE || AMERICA'S WORCESTERSHIRE",
-        thumb: "assets/wsauce.jpg",
-        embed:
-          "https://iframe.mediadelivery.net/embed/YOUR_ID_HERE?autoplay=true"
-      }
-    ];
-
-    /* =============================
-       DO NOT EDIT BELOW
-       ============================= */
-
-    const grid = document.getElementById("portfolioGrid");
-    const modal = document.getElementById("videoModal");
-    const player = document.getElementById("videoPlayer");
-
-    grid.innerHTML = VIDEOS.map((v, i) => `
-      <div class="portfolio-tile" onclick="openVideo(${i})">
-        <img src="${v.thumb}" alt="${v.title}">
-        <div class="portfolio-overlay"></div>
-        <div class="portfolio-title">${v.title}</div>
+    <main class="portfolio-wrap">
+      <div class="portfolio-intro">
+        <h1>Portfolio</h1>
+        <p>Click a project to view the full video + production notes.</p>
       </div>
-    `).join("");
 
-    function openVideo(index) {
-      player.innerHTML = `
-        <iframe
-          src="${VIDEOS[index].embed}"
-          allow="autoplay; encrypted-media"
-          allowfullscreen>
-        </iframe>
-      `;
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+      <div class="portfolio-grid" id="portfolioGrid"></div>
+    </main>
 
-    function closeVideo() {
-      modal.classList.remove("active");
-      player.innerHTML = "";
-      document.body.style.overflow = "";
-    }
-  </script>
+    <!-- ✅ EXACT SAME FOOTER AS INDEX -->
+    <footer class="footer">
+      &copy;
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      AMRvisuals. All Rights Reserved.
+    </footer>
 
-</body>
+    <script>
+      /**
+       * EDIT ONLY THIS LIST.
+       * Each item links to: /projects/<slug>.html
+       *
+       * Add as many as you want — I included a bunch of placeholders.
+       * Use a single placeholder image until you replace them.
+       */
+      const PROJECTS = [
+        { title: "KOB TV || YOUTUBE PROMO", thumb: "assets/KOBTV-PROMO.png", slug: "KOB TV YOUTUBE PROMO" },
+        { title: "LEW'S || ACCEL REEL",          thumb: "assets/ACCEL.jpg",     slug: "costa-n1-2025" },
+        { title: "CHÊNE GEAR || CYPRESS",     thumb: "assets/chene.jpg",     slug: "chene-cypress" },
+        { title: "W SAUCE || WORCESTERSHIRE", thumb: "assets/wsauce.jpg",    slug: "w-sauce-worcestershire" },
+
+        // ----- PLACEHOLDERS (fill in over time) -----
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-01" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-02" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-03" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-04" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-05" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-06" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-07" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-08" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-09" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-10" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-11" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-12" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-13" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-14" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-15" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-16" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-17" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-18" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-19" },
+        { title: "PROJECT TITLE", thumb: "assets/placeholder.jpg", slug: "project-20" },
+      ];
+
+      const grid = document.getElementById("portfolioGrid");
+
+      grid.innerHTML = PROJECTS.map((p) => `
+        <a class="portfolio-tile" href="projects/${encodeURIComponent(p.slug)}.html">
+          <img class="portfolio-thumb" src="${escapeAttr(p.thumb)}" alt="${escapeAttr(p.title)}" loading="lazy" />
+          <div class="portfolio-overlay"></div>
+          <div class="portfolio-title">${escapeHtml(p.title)}</div>
+        </a>
+      `).join("");
+
+      function escapeHtml(str) {
+        return String(str ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+      function escapeAttr(str) {
+        return escapeHtml(str).replaceAll("`", "&#96;");
+      }
+    </script>
+  </body>
 </html>
