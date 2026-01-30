@@ -1,0 +1,160 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | AMRvisuals</title>
+
+    <link rel="stylesheet" href="../style.css" />
+    <script defer src="../script.js"></script>
+
+    <style>
+      .project-wrap {
+        padding: 0 32px 64px;
+        box-sizing: border-box;
+      }
+
+      .project-title {
+        margin: 28px 0 16px;
+      }
+
+      .project-player {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .project-player iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      .project-notes {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+      }
+
+      .project-notes h3 {
+        margin: 0 0 10px;
+      }
+
+      .project-notes p {
+        margin: 0 0 10px;
+        opacity: 0.9;
+      }
+
+      .project-notes ul {
+        margin: 0;
+        padding-left: 18px;
+        opacity: 0.9;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: 18px;
+        text-decoration: none;
+        opacity: 0.9;
+      }
+         /* Fix title being covered by iframe/player */
+.project-title {
+  position: relative;
+  z-index: 2;
+  margin: 28px 0 14px;
+}
+
+.project-player {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+}
+
+/* If any global styles are pulling sections upward */
+.project-wrap {
+  position: relative;
+  z-index: 1;
+}
+      /* Slightly constrain video width */
+.project-player {
+  max-width: 1200px;   /* ← adjust this number */
+  margin: 12px auto 0; /* center it */
+}
+    </style>
+
+  </head>
+
+  <body>
+    <!-- ✅ SAME HEADER AS INDEX (paths adjusted) -->
+    <header>
+      <div class="container nav-wrapper">
+        <a href="../index.html" class="logo"> AMRvisuals </a>
+
+        <ul class="nav-links">
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../portfolio.html">Portfolio</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+
+        <a href="../contact.html" class="header-cta">contact</a>
+      </div>
+    </header>
+
+    <main class="project-wrap">
+      <h1 class="project-title">THE REPARDS || WEDDING VIDEO</h1>
+
+      <!-- ✅ Bunny Stream iframe goes here -->
+      <div class="project-player">
+        <iframe
+          src="https://iframe.mediadelivery.net/embed/514564/c05fef9f-1345-4c3c-a3d9-cae0b1cd0282?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+          loading="lazy"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <!-- ✅ Notes box -->
+      <div class="project-notes">
+        <h3>Production Notes</h3>
+
+        <p><strong>Goal:</strong> (what was this video meant to achieve?)</p>
+        <p><strong>Approach:</strong> (creative direction, story beats, pacing)</p>
+
+        <ul>
+          <li><strong>Gear:</strong> (camera/lens/audio/lighting)</li>
+          <li><strong>Team:</strong> (roles: DP, edit, color, sound, etc.)</li>
+          <li><strong>Deliverables:</strong> (15s, 30s, 60s, socials, cutdowns)</li>
+          <li><strong>Notes:</strong> (anything worth calling out)</li>
+        </ul>
+      </div>
+
+      <a class="back-link" href="../portfolio.html">← Back to Portfolio</a>
+    </main>
+
+    <!-- ✅ SAME FOOTER AS INDEX -->
+    <footer class="footer">
+      &copy;
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      AMRvisuals. All Rights Reserved.
+    </footer>
+  </body>
+</html>
