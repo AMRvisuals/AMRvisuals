@@ -181,7 +181,7 @@
       const grid = document.getElementById("portfolioGrid");
 
       grid.innerHTML = PROJECTS.map((p) => `
-        <a class="portfolio-tile" href="projects/${encodeURIComponent(p.slug)}.html">
+        <a class="portfolio-tile" href="./projects/${encodeURIComponent(p.slug)}.html">
           <img class="portfolio-thumb" src="${escapeAttr(p.thumb)}" alt="${escapeAttr(p.title)}" loading="lazy" />
           <div class="portfolio-overlay"></div>
           <div class="portfolio-title">${escapeHtml(p.title)}</div>
