@@ -565,6 +565,16 @@ header .logo::before {
   content: none !important;
 }
 
+.about-media {
+  max-width: 420px;   /* adjust size here */
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
 
 
 
