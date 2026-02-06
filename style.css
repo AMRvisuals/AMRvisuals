@@ -566,7 +566,7 @@ header .logo::before {
 }
 
 .about-media {
-  max-width: 325px;     /* your chosen size */
+  max-width: 400px;     /* your chosen size */
   aspect-ratio: 4 / 5; /* controls visible crop window */
   overflow: hidden;    /* hides cropped areas */
 }
