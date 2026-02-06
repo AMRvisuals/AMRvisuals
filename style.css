@@ -570,7 +570,7 @@ header .logo::before {
 }
 
 .about-image {
-  width: 35%;
+  width: 20%;
   height: auto;
   display: block;
   border-radius: 6px;
