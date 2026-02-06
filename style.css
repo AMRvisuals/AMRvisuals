@@ -565,18 +565,20 @@ header .logo::before {
   content: none !important;
 }
 
-/* Container controls the size */
 .about-media {
-  max-width: 275px;   /* adjust this number */
+  max-width: 275px;     /* your chosen size */
+  aspect-ratio: 4 / 5; /* controls visible crop window */
+  overflow: hidden;    /* hides cropped areas */
 }
 
-/* Media fills the container */
 .about-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;   /* enables cropping */
+  object-position: center; /* center crop */
   display: block;
-  border-radius: 6px;
 }
+
 
 
 
